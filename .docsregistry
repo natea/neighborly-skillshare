@@ -1,0 +1,178 @@
+{
+  "documentation_registry": [
+    {
+      "file_path": "init_docs/blueprint.md",
+      "description": "User Blueprint for Neighborly Skillshare MVP, detailing initial project concept.",
+      "type": "User Blueprint",
+      "timestamp": "2025-05-20T19:22:18.000Z"
+    },
+    {
+      "file_path": "init_docs/product_requirements.md",
+      "description": "Product Requirements Document for Neighborly Skillshare.",
+      "type": "Product Requirements Document",
+      "timestamp": "2025-05-20T19:22:18.000Z"
+    },
+    {
+      "file_path": "init_docs/master_project_plan.md",
+      "description": "Initial draft of the Master Project Plan (superseded by version in /docs).",
+      "type": "Master Project Plan (Draft)",
+      "timestamp": "2025-05-20T19:22:18.000Z"
+    },
+    {
+      "file_path": "init_docs/research/initial_strategic_research_report.md",
+      "description": "Early findings from the initial strategic research phase (refer to /docs/ version for latest).",
+      "type": "Research Report (Draft)",
+      "timestamp": "2025-05-20T19:22:18.000Z"
+    },
+    {
+      "file_path": "docs/research/initial_strategic_research_report.md",
+      "description": "Initial Strategic Research Report providing foundational insights for the project.",
+      "type": "Research Report",
+      "timestamp": "2025-05-20T19:22:18.000Z"
+    },
+    {
+      "file_path": "docs/research/high_level_test_strategy_report.md",
+      "description": "High-Level Test Strategy Report outlining approaches for comprehensive MVP validation.",
+      "type": "Test Strategy Report",
+      "timestamp": "2025-05-20T19:22:18.000Z"
+    },
+    {
+      "file_path": "docs/testing/master_acceptance_test_plan.md",
+      "description": "Master Acceptance Test Plan (MATP) for Neighborly Skillshare MVP.",
+      "type": "Master Acceptance Test Plan",
+      "timestamp": "2025-05-20T19:22:18.000Z"
+    },
+    {
+      "file_path": "docs/testing/high_level_acceptance_tests/hlt_user_registration_and_profile_completion.md",
+      "description": "High-Level Acceptance Test: User Registration and Profile Completion, referenced during profile setup wizard implementation.",
+      "type": "High-Level Acceptance Test",
+      "timestamp": "2025-05-20T23:33:01.576Z"
+    },
+    {
+      "file_path": "docs/testing/high_level_acceptance_tests/hlt_skill_provider_posts_offer.md",
+      "description": "High-Level Acceptance Test: Skill Provider Posts Offer.",
+      "type": "High-Level Acceptance Test",
+      "timestamp": "2025-05-20T19:22:18.000Z"
+    },
+    {
+      "file_path": "docs/testing/high_level_acceptance_tests/hlt_skill_seeker_posts_request.md",
+      "description": "High-Level Acceptance Test: Skill Seeker Posts Request.",
+      "type": "High-Level Acceptance Test",
+      "timestamp": "2025-05-20T19:22:18.000Z"
+    },
+    {
+      "file_path": "docs/testing/high_level_acceptance_tests/hlt_search_skills_and_view_results.md",
+      "description": "High-Level Acceptance Test: Search Skills and View Results.",
+      "type": "High-Level Acceptance Test",
+      "timestamp": "2025-05-20T19:22:18.000Z"
+    },
+    {
+      "file_path": "docs/testing/high_level_acceptance_tests/hlt_secure_in_app_messaging.md",
+      "description": "High-Level Acceptance Test: Secure In-App Messaging.",
+      "type": "High-Level Acceptance Test",
+      "timestamp": "2025-05-20T19:22:18.000Z"
+    },
+    {
+      "file_path": "docs/testing/high_level_acceptance_tests/hlt_ratings_and_reviews.md",
+      "description": "High-Level Acceptance Test: Ratings and Reviews.",
+      "type": "High-Level Acceptance Test",
+      "timestamp": "2025-05-20T19:22:18.000Z"
+    },
+    {
+      "file_path": "docs/master_project_plan.md",
+      "description": "Definitive Master Project Plan (MPP), referenced during profile photo upload spec & test gen (Task 2.2.2).",
+      "type": "Master Project Plan",
+      "timestamp": "2025-05-20T23:53:37.000Z"
+    },
+    {
+      "file_path": "docs/architecture/system_architecture_v2.md",
+      "description": "System Architecture Document (v2), referenced during profile setup wizard implementation.",
+      "type": "System Architecture Document",
+      "timestamp": "2025-05-20T23:33:01.576Z"
+    },
+    {
+      "file_path": "docs/research/github_template_research_report.md",
+      "description": "GitHub Template Research Report, referenced during framework scaffolding.",
+      "type": "Research Report",
+      "timestamp": "2025-05-20T20:03:09.000Z"
+    },
+    {
+      "file_path": "docs/template_integration_guide.md",
+      "description": "Template Integration Guide, referenced during framework scaffolding.",
+      "type": "Guide Document",
+      "timestamp": "2025-05-20T20:03:09.000Z"
+    },
+    {
+      "file_path": "docs/architecture/component_architecture.md",
+      "description": "Component architecture documentation, referenced during profile setup wizard implementation.",
+      "type": "Architecture Document",
+      "timestamp": "2025-05-20T23:33:01.576Z"
+    },
+    {
+      "file_path": "docs/reports/framework_scaffold_report_v1.md",
+      "description": "Framework Scaffold Report (v1), detailing scaffolding activities and outcomes.",
+      "type": "Report Document",
+      "timestamp": "2025-05-20T20:03:09.000Z"
+    },
+    {
+      "file_path": "docs/reports/debug_report_layout_and_next_config_fixes.md",
+      "description": "Debug report detailing fixes for an app/layout.tsx TypeError (Geist font) and a next.config.js warning (deprecated serverActions), resolving application startup issues.",
+      "type": "Report Document",
+      "timestamp": "2025-05-20T20:38:42.731Z"
+    },
+    {
+      "file_path": "components/auth/LoginForm.tsx",
+      "description": "React component for user login form UI and authentication logic.",
+      "type": "React Component",
+      "timestamp": "2025-05-20T21:05:26.000Z"
+    },
+    {
+      "file_path": "app/auth/login/page.tsx",
+      "description": "Next.js page for displaying the user login form.",
+      "type": "Application Page",
+      "timestamp": "2025-05-20T21:05:26.000Z"
+    },
+    {
+      "file_path": "__tests__/features/auth/userLogin.test.tsx",
+      "description": "Jest/RTL test suite for login functionality.",
+      "type": "Test File",
+      "timestamp": "2025-05-20T21:05:26.000Z"
+    },
+    {
+      "file_path": "docs/reports/debug_report_password_reset_test_failure.md",
+      "description": "Initial debug report for failing test in Password Reset Flow (Task ID 2.1.4).",
+      "type": "Report Document",
+      "timestamp": "2025-05-20T22:25:49.123Z"
+    },
+    {
+      "file_path": "docs/reports/debug_report_password_reset_test_failure_v2.md",
+      "description": "Second, successful debug report identifying root cause in ResetPasswordForm component for Password Reset Flow (Task ID 2.1.4).",
+      "type": "Report Document",
+      "timestamp": "2025-05-20T22:25:49.123Z"
+    },
+    {
+      "file_path": "docs/reports/debug_report_auth_regressions_post_social_login.md",
+      "description": "Debug report for auth test regressions after social login implementation (Task 2.1.5).",
+      "type": "Report Document",
+      "timestamp": "2025-05-20T22:43:29.907Z"
+    },
+    {
+      "file_path": "docs/testing/granular_test_plans/gtp_feature_2_2_1_profile_setup_wizard.md",
+      "description": "Granular test plan for feature 2.2.1 Profile Setup Wizard, referenced during its implementation.",
+      "type": "Granular Test Plan",
+      "timestamp": "2025-05-20T23:33:01.576Z"
+    },
+    {
+      "file_path": "docs/specs/feature_2_2_2_profile_photo_upload.md",
+      "description": "Feature overview specification for profile photo upload and management (MPP Task 2.2.2). Details requirements for photo upload, cropping, storage, display, and deletion/replacement.",
+      "type": "Feature Specification",
+      "timestamp": "2025-05-20T23:53:37.000Z"
+    },
+    {
+      "file_path": "docs/testing/granular_test_plans/gtp_feature_2_2_2_profile_photo_upload.md",
+      "description": "Granular test plan for profile photo upload and management feature (MPP Task 2.2.2). Incorporates London School TDD principles and maps to AI Verifiable End Results.",
+      "type": "Granular Test Plan",
+      "timestamp": "2025-05-20T23:53:37.000Z"
+    }
+  ]
+}

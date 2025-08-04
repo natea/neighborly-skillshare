@@ -1,0 +1,57 @@
+# High-Level Acceptance Test: Search for Skills and View Results
+
+**Test ID:** HLT-004
+**Test Title/Objective:** Verify that a user, leveraging their Supastarter-based account, can search for Neighborly Skillshare skills using various criteria (location, keywords, category, filters) and view relevant results.
+**Priority:** High
+**Version:** 1.1 (Revised for Supastarter Template Integration)
+**References:**
+*   [`init_docs/blueprint.md (Section 3.1)`](../../../init_docs/blueprint.md#L34)
+*   [`init_docs/product_requirements.md (Sections 2.2.3, 4.2.3)`](../../../init_docs/product_requirements.md#L139)
+*   [`docs/research/high_level_test_strategy_report.md (Section 3.3)`](../../research/high_level_test_strategy_report.md#L58)
+*   [`docs/research/github_template_research_report.md`](../../research/github_template_research_report.md)
+*   [`docs/template_integration_guide.md`](../../template_integration_guide.md)
+
+## 1. Preconditions
+*   The Neighborly Skillshare MVP web application, built upon the Supastarter template, is deployed and accessible.
+*   Multiple users with diverse skill offers (stored in custom `skill_offers` table) and requests exist, covering different categories, locations (e.g., "Willow Creek," "Oakwood Suburbs," "Downtown District"), and exchange types. Relevant `skill_categories` and `user_locations` (with PostGIS data) are populated.
+    *   User Maya (`maya_provider_supastarter_email@example.com`) has offered "Custom Logo Design" (Paid, $150, Category: Graphic & Web Design) in "Willow Creek".
+    *   User James (`james_newuser_supastarter_email@example.com`) has offered "Math Tutoring" (Barter/Paid, Category: Education) in "Willow Creek".
+    *   User Sarah Helper (`sarah_helper_supastarter@example.com`): "Pet Sitting" (Paid, $20/day, Category: Pet Care) in "Oakwood Suburbs".
+    *   User Tom Fixit (`tom_fixit_supastarter@example.com`): "Minor Home Repairs" (Free/Barter, Category: Home Maintenance) in "Willow Creek".
+*   Test User Persona: "Sophia (42, Community Organizer)" is registered via Supastarter, logged in, and her Neighborly Skillshare profile location is "Willow Creek Neighborhood". (Data: `sophia_community_supastarter_email@example.com`, `Password123!`)
+*   PostGIS extension is enabled in Supabase and `user_locations` table has `geom` column for geospatial queries as per [`docs/template_integration_guide.md`](../../template_integration_guide.md).
+
+## 2. Test Steps
+
+| Step | Action                                                                                                   | Expected Result                                                                                                                                                             | AI Verifiable Completion Criterion                                                                                                                                                                                                                            |
+| :--- | :------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1    | Log in as Sophia (`sophia_community_supastarter_email@example.com`) using Supastarter's login flow.      | Sophia is successfully logged in and on her Neighborly Skillshare dashboard/home page.                                                                                        | AI: Verify successful login.                                                                                                                                                                                                                  |
+| 2    | Navigate to the main skill search page (custom Neighborly Skillshare page).                                | The search page loads with a search bar, category filters (populated from `skill_categories`), location input (possibly pre-filled based on Sophia's profile), and other filter options. | AI: Verify page title "Search Skills" or similar. Presence of search input field, category selectors, location input, and filter toggles/dropdowns.                                                                                        |
+| 3    | **Location-Based Search:** Ensure location is set to "Willow Creek Neighborhood" (or within a 1-mile radius via PostGIS query). Perform a search without keywords. | Results primarily from "Willow Creek" are displayed. Offers like "Custom Logo Design" (Maya), "Math Tutoring" (James), "Minor Home Repairs" (Tom) should be visible. "Pet Sitting" (Sarah from Oakwood) should not be prominent or visible. | AI: Verify listings from Maya, James, and Tom are present in results (checking for skill titles and provider names). Listing from Sarah is absent or ranked lower. Each result card should show skill title, provider name, snippet, and location/distance. |
+| 4    | **Keyword Search:** In the search bar, type "Tutoring" with location still "Willow Creek".               | Search results are filtered to show "Math Tutoring" by James. Other non-tutoring skills from Willow Creek should be excluded or ranked much lower.                               | AI: Verify "Math Tutoring" by James is a top result. "Custom Logo Design" and "Minor Home Repairs" are not present or significantly de-prioritized.                                                                                           |
+| 5    | **Category Search:** Clear keyword. Select category "Home Maintenance" with location "Willow Creek".     | Results show "Minor Home Repairs" by Tom Fixit. Other categories are excluded.                                                                                             | AI: Verify "Minor Home Repairs" by Tom Fixit is a top result. Skills from other categories are not present.                                                                                                                                  |
+| 6    | **Filter by Exchange Type:** With "Home Maintenance" in "Willow Creek", filter by "Free".                | "Minor Home Repairs" by Tom Fixit (offered as Free/Barter) should still be visible.                                                                                         | AI: Verify "Minor Home Repairs" by Tom Fixit is present.                                                                                                                                                                                      |
+| 7    | **Filter by Price (if applicable for "Paid" skills):** Search for "Logo Design" in "Willow Creek". Filter by Price Range: "$100-$200". | "Custom Logo Design" by Maya (at $150) should be visible.                                                                                                   | AI: Verify "Custom Logo Design" by Maya is present.                                                                                                                                                                                           |
+| 8    | **Combined Filters:** Search category "Graphic & Web Design", location "Willow Creek", exchange type "Paid". | "Custom Logo Design" by Maya should be the primary result.                                                                                                                  | AI: Verify "Custom Logo Design" by Maya is the most prominent result.                                                                                                                                                                         |
+| 9    | **Search with No Results:** Search for "Underwater Basket Weaving" in "Willow Creek".                    | A message "No skills found matching your criteria" or similar is displayed. No listing cards are shown.                                                       | AI: Verify a "no results" message is present. Verify no skill listing elements are rendered.                                                                                                                                                |
+| 10   | **View Listing Details from Search:** Click on the "Custom Logo Design" listing from any relevant search result. | Sophia is taken to the full details page for Maya's "Custom Logo Design" offer.                                                                                           | AI: Verify URL changes to the skill offer's detail page. Page displays "Custom Logo Design", "$150", Maya's name, and full description.                                                                                                    |
+| 11   | **Map View (if implemented):** If a map view is available, toggle to it.                                 | Skill listings are displayed as pins on a map centered around the search location (pins derived from `user_locations` via PostGIS). Clicking a pin shows a summary. | AI: Verify presence of a map element. Verify pins are present. (Focus on presence of map and pins).                                                                                                                                       |
+
+## 3. Test Data
+*   **Searching User:** Sophia (`sophia_community_supastarter_email@example.com`), logged in, profile location "Willow Creek Neighborhood".
+*   **Skill Offer Data (Pre-existing in `skill_offers` and linked tables):**
+    *   Maya: "Custom Logo Design", Paid ($150), Category: Graphic & Web Design, Location: Willow Creek.
+    *   James: "Math Tutoring", Barter/Paid, Category: Education, Location: Willow Creek.
+    *   Sarah Helper: "Pet Sitting", Paid ($20/day), Category: Pet Care, Location: Oakwood Suburbs.
+    *   Tom Fixit: "Minor Home Repairs", Free/Barter, Category: Home Maintenance, Location: Willow Creek.
+*   Locations for testing: "Willow Creek Neighborhood", "Oakwood Suburbs", "Downtown District" (with corresponding `user_locations` and `geom` data).
+*   `skill_categories` table populated.
+
+## 4. Expected Overall Result
+A user can effectively search for available skill offers using various criteria. Search results are relevant, leveraging PostGIS for accurate geospatial queries. The user can navigate to view detailed information about a specific skill offer.
+
+## 5. AI Verifiable End Result
+*   For each search scenario (steps 3-9), the UI displays the expected skill listings (from `skill_offers` table) or a "no results" message.
+*   The content of displayed listings matches the search criteria and data from `skill_offers`, `profiles`, and `skill_categories` tables.
+*   AI can verify by checking for presence/absence of specific text elements, state of filter controls, "no results" message, and content of the skill detail page.
+*   Database: Backend PostGIS queries (verified indirectly via UI results or directly if logs/tooling permit) should correctly filter by location.

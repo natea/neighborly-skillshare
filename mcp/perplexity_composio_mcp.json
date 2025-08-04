@@ -1,0 +1,8 @@
+
+    "perplexityai": {
+      "url": "https://mcp.composio.dev/composio/server/<your_api_key_here>",
+      "alwaysAllow": [
+        "PERPLEXITYAI_PERPLEXITY_AI_SEARCH"
+      ],
+      "disabled": false
+    },
