@@ -136,6 +136,6 @@ The `quickstart-wizard` custom mode in `.roomodes` is what's used to prompt the 
 
 This product requirements doc (PRD) is used later to build out the `docs/master_project_plan.md` and high level tests as described in the `docs/testing/high_level_acceptance_tests` folder and `docs/testing/master_acceptance_test_plan.md`.
 
-You can also find extensive research that Roo Code conducted using the Gemini MCP server in the `docs/research/neighborly_skillshare` folder.
+You can also find extensive research that Roo Code conducted using the [Gemini MCP server](https://github.com/aliargun/mcp-server-gemini) in the `docs/research/neighborly_skillshare` folder.
 
-In order for this to work, you need to add your Gemini API key to your global VSCode `mcp_settings.json` file or a project specific `.roo/mcp.json` file. See `mcp/gemini_mcp.json` for an example.
+In order for this to work, you need to add your Gemini API key to your global VSCode `mcp_settings.json` file or a project specific `.roo/mcp.json` file. See `mcp/gemini_mcp.json` for an example. Also see the official [Roo Code documentation](https://docs.roocode.com/features/mcp/using-mcp-in-roo#configuring-mcp-servers) on setting up MCP servers.
